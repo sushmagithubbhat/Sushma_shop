@@ -1,3 +1,4 @@
+
 /* GLOBAL */
 * {
     margin: 0;
@@ -8,14 +9,15 @@
 
 /* NAVBAR */
 .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
     height: 60px;
+    width: 100%;
     background-color: #0f1111;
     color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    width: 100%;
+    padding: 5px 10px;
 }
 
 .nav-logo img {
@@ -69,21 +71,22 @@
 
 /* PANEL */
 .panel {
-    height: 40px;
-    background-color: #222f3d;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+    background-color: #222f3d;
     color: white;
     width: 100%;
+    flex-wrap: wrap;
+    padding: 5px 10px;
+    box-sizing: border-box;
 }
 
 .panel-all, .panel-deals {
     display: flex;
     align-items: center;
-    padding: 0 10px;
     cursor: pointer;
+    padding: 5px 10px;
 }
 
 .panel-ops {
@@ -92,29 +95,17 @@
     flex-wrap: wrap;
 }
 
-/* HERO */
+/* HERO SECTION */
 .hero-section {
     background-image: url("hero_image.jpg");
-    height: 350px;            /* keep original desktop height */
     background-size: cover;
     background-position: center;
+    height: 400px;       /* desktop height */
+    width: 100%;
     display: flex;
     justify-content: center;
-    align-items: flex-end; 
-       /* keep hero-msg at bottom */
-    margin-top: 0;
+    align-items: flex-end; /* hero-msg at bottom */
 }
-
-/* MOBILE */
-@media (max-width: 768px) {
-    .hero-section {
-        height: 250px;        /* smaller height for mobile */
-         /* keep main part visible */
-    }
-
-   
-}
-
 
 .hero-msg {
     background-color: white;
@@ -122,10 +113,12 @@
     width: 80%;
     text-align: center;
     font-size: 0.85rem;
+    border-radius: 5px;
 }
 
 .hero-msg a {
     color: #007185;
+    text-decoration: none;
 }
 
 /* SHOP SECTION */
@@ -216,16 +209,27 @@ footer {
 
 /* MEDIA QUERIES FOR MOBILE */
 @media (max-width: 768px) {
+    /* Navbar stack vertically */
     .navbar {
+        flex-direction: column;
+        align-items: center;
         justify-content: center;
+    }
+
+    .nav-address, .nav-signin, .nav-return, .nav-cart {
+        width: 100%;
+        text-align: center;
+        margin: 5px 0;
     }
 
     .nav-search {
         width: 95%;
     }
 
+    /* Panel stack vertically */
     .panel {
         flex-direction: column;
+        align-items: center;
         height: auto;
         padding: 10px 0;
     }
@@ -235,6 +239,18 @@ footer {
         gap: 10px;
     }
 
+    /* Hero section smaller on mobile */
+    .hero-section {
+        height: 250px; /* mobile height */
+        align-items: flex-end;
+    }
+
+    .hero-msg {
+        width: 95%;
+        font-size: 0.8rem;
+    }
+
+    /* Shop section vertical */
     .shop-section {
         flex-direction: column;
         align-items: center;
